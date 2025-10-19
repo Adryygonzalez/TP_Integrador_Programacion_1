@@ -28,6 +28,11 @@ Incluye funcionalidades de búsqueda, filtrado, ordenamiento y estadísticas.
   - Promedio de superficie por continente y global 
   - Cantidad de países por continente y global
 
+#### 🖊️ Modificaciones
+- Se incorporó agregar países
+- Se incorporó actualizar superficie y/o población
+- Se incorporó elimiar un país
+
 ## 📂 Estructura del proyecto
 
 ![Estructura](./imagenes/estructura.jpg)
