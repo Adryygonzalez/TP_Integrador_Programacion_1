@@ -31,7 +31,7 @@ def mostrar_paises(paises:list[dict]):
     print(f'| {'Nombre':>20} {'|':>21} {'Datos':>23} {'|':>17} {'Continente':>15}{'|':>7}')    
     print(f'•{'-'*107}•')    
     for indice,pais in enumerate(paises):
-        print(f'| {indice+1:>3}. {pais['nombre']:<35} | Pob: {pais['poblacion']:>13} | Sup: {pais['superficie']:>13,.12g} | {pais['continente']:<20} {'|'}')
+        print(f'| {indice+1:>3}. {pais['nombre']:<35} | Pob: {pais['poblacion']:>13} | Sup: {pais['superficie']:>13.12g} | {pais['continente']:<20} {'|'}')
     print(f'•{'-'*107}•')   
 
 def mostrar_cantidad_paises_por_continente(*,paises:list[dict], continentes:list[str]):
@@ -263,7 +263,7 @@ def filtrar_por_continente(paises: list[dict], *, continente='todos')->list[dict
     '''
     filtrados = []
     for pais in paises:
-        if (normalizar_cadena(pais['continente']) == normalizar_cadena(continente)) or normalizar_cadena(continente) == 'todos':
+        if (normalizar_cadena(pais['continente']) == normalizar_cadena(continente)):
             filtrados.append(pais)
     return filtrados
 
@@ -322,7 +322,7 @@ def contar_paises_por_continente(paises:list[dict],*,continente='todos')->int:
     '''
     contador = 0
     for pais in paises:
-        if (normalizar_cadena(pais['continente']) == normalizar_cadena(continente)) or normalizar_cadena(continente) == 'todos':
+        if (normalizar_cadena(pais['continente']) == normalizar_cadena(continente)):
             contador += 1
     return contador
 
@@ -338,7 +338,7 @@ def calcular_promedio_por_continente(paises:list[dict],*,continente='amrica del 
         float
             Promedio del campo solicitado para el continente especificado.
     '''
-    datos = [pais[campo] for pais in paises if pais['continente'].lower() == continente.lower() or continente.lower() == 'todos']
+    datos = [pais[campo] for pais in paises if pais['continente'].lower() == continente.lower()]
     return  mean(datos) 
 
 

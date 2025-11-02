@@ -119,4 +119,3 @@ def normalizar_cadena(texto: str) -> str:
         str: La cadena normalizada, en minúsculas y sin acentos.
     '''
     return ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn').lower()
-

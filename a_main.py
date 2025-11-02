@@ -11,12 +11,15 @@ menu_ordenamiento = ['nombre', 'poblacion', 'superficie']
 menu_estadisticas = ['País con mayor y menor población', 'País con mayor y menor superficie', 'Promedio de población', 
                     'Promedio de superficie','Cantidad de países por continente']
 opciones_actualizar = ['poblacion','superficie']
+denegado_sin_archivo = f'DENEGADO - Debe cargar un archivo para poder operar'
+denegado_lista_vacia = f'DENEGADO - Debe existir por lo menos un país'
 
 while True:
-    dibujar_titulo('menu principal',tab=1,char='=',cant=7)    
-    match pedir_opcion_listado('Seleccione una opción: ',menu_principal):
+    dibujar_titulo('menu principal',tab=1,char='=',cant=7)
+    opcion_menu = pedir_opcion_listado('Seleccione una opción: ',menu_principal)
+    match opcion_menu:
         case 1:
-            dibujar_titulo('Cargar archivo .csv',char='-', cant=3)
+            dibujar_titulo(menu_principal[opcion_menu-1],char='-', cant=3)
             if not ruta:
                 while True:
                     opcion = pedir_opcion_listado('Elija una opcion: ',['Cargar un archivo existente','Crear uno nuevo'])
@@ -32,17 +35,17 @@ while True:
             else:
                 dibujar_titulo(f'DENEGADO - Ya existe un archivo en uso',char='*',cant=3)
         case 2:
-            dibujar_titulo('Agregar un país',char='-', cant=3)
+            dibujar_titulo(menu_principal[opcion_menu-1],char='-', cant=3)
             if not ruta:
-                dibujar_titulo(f'DENEGADO - Debe cargar un archivo para poder operar',char='*',cant=3)
+                dibujar_titulo((denegado_sin_archivo if not ruta else denegado_lista_vacia),char='*',cant=3)
                 continue
             if crear_pais_consola(paises,continentes):
                 guardar_paises_en_csv(paises,ruta)
                 dibujar_titulo('País creado y agregado con exito',char='*',cant=3)
         case 3:
-            dibujar_titulo('Actualizar un país',char='-', cant=3)
+            dibujar_titulo(menu_principal[opcion_menu-1],char='-', cant=3)
             if not paises:
-                dibujar_titulo(f'DENEGADO - Debe cargar un archivo para poder operar',char='*',cant=3)
+                dibujar_titulo((denegado_sin_archivo if not ruta else denegado_lista_vacia),char='*',cant=3)
                 continue                
             pais = pedir_un_pais('Seleccione el país que quiere actualizar: ',paises)
             opcion = pedir_opcion_listado('Elija una opción: ',opciones_actualizar)
@@ -57,15 +60,15 @@ while True:
             else:
                 dibujar_titulo(f'No se logro actualizar',char='*',cant=3)
         case 4:
-            dibujar_titulo('Buscar pais (coincidencia parcial o exacta)',char='-', cant=3)
+            dibujar_titulo(menu_principal[opcion_menu-1],char='-', cant=3)
             if not paises:
-                dibujar_titulo(f'DENEGADO - Debe cargar un archivo para poder operar',char='*',cant=3)
+                dibujar_titulo((denegado_sin_archivo if not ruta else denegado_lista_vacia),char='*',cant=3)
                 continue
-            mostrar_paises(buscar_paises_por_nombre(paises,pedir_cadena_solo_letras('Ingrese el nombre del pais que quiere ver: ')))
+            mostrar_paises(buscar_paises_por_nombre(paises,pedir_cadena('Ingrese el nombre del pais que quiere ver: ')))
         case 5:
-            dibujar_titulo('Filtrar paises',char='-', cant=3)
+            dibujar_titulo(menu_principal[opcion_menu-1],char='-', cant=3)
             if not paises:
-                dibujar_titulo(f'DENEGADO - Debe cargar un archivo para poder operar',char='*',cant=3)
+                dibujar_titulo((denegado_sin_archivo if not ruta else denegado_lista_vacia),char='*',cant=3)
                 continue
             opcion = pedir_opcion_listado('Selecciones una opcion: ',menu_filtrado)
             if opcion == 1:               
@@ -79,18 +82,18 @@ while True:
             else:
                 dibujar_titulo('No se econtraron registros con los critrerios de busqueda',char='*',cant=3)
         case 6:
-            dibujar_titulo('Ordenar paises',char='-', cant=3)
+            dibujar_titulo(menu_principal[opcion_menu-1],char='-', cant=3)
             if not paises:
-                dibujar_titulo(f'DENEGADO - Debe cargar un archivo para poder operar',char='*',cant=3)
+                dibujar_titulo((denegado_sin_archivo if not ruta else denegado_lista_vacia),char='*',cant=3)
                 continue
             print('Ordenar por:',end=' ')
             opcion = pedir_opcion_listado('Seleccione una opcion: ', menu_ordenamiento)
             asc = True if pedir_entero('Seleccione (1-Ascendente 2-Descedendete): ',minimo=1,maximo=2) == 2 else False
             mostrar_paises(ordenar_paises(paises,clave=menu_ordenamiento[opcion-1],descendente=asc))
         case 7:
-            dibujar_titulo('Mostrar estadisticas',char='-', cant=3)
+            dibujar_titulo(menu_principal[opcion_menu-1],char='-', cant=3)
             if not paises:
-                dibujar_titulo(f'DENEGADO - Debe cargar un archivo para poder operar',char='*',cant=3)
+                dibujar_titulo((denegado_sin_archivo if not ruta else denegado_lista_vacia),char='*',cant=3)
                 continue
             match pedir_opcion_listado('Elija que estadistica quiere ver: ',menu_estadisticas):
                 case 1:
@@ -113,9 +116,9 @@ while True:
                     dibujar_titulo('Cantidad de países por continente',char='-',cant=1)
                     mostrar_cantidad_paises_por_continente(paises=paises,continentes=continentes)  
         case 8:
-            dibujar_titulo('Eliminar un país',char='-', cant=3)
+            dibujar_titulo(menu_principal[opcion_menu-1],char='-', cant=3)
             if not paises:
-                dibujar_titulo(f'DENEGADO - Debe cargar un archivo para poder operar',char='*',cant=3)
+                dibujar_titulo((denegado_sin_archivo if not ruta else denegado_lista_vacia),char='*',cant=3)
                 continue
             pais = pedir_un_pais('Seleccione el país que quiere eliminar: ',paises)
             if eliminar_pais(pais,paises):

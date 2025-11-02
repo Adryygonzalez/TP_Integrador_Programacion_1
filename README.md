@@ -5,7 +5,6 @@ Tecnicatura Universitaria en Programación
 ## 👥 Integrantes
 - `Adrian Gonzalez` Comisión 6
 - `Ezequiel Taboada`  Comisión 13
-
 ## 📌 Descripción
 Aplicación en **Python 3.13** que permite gestionar información de países a partir de un archivo **CSV**.  
 Incluye funcionalidades de búsqueda, filtrado, ordenamiento y estadísticas.
@@ -80,9 +79,3 @@ Este proyecto utiliza únicamente librerías estándar de Python (no requiere in
 - **tkinter.filedialog**  
   Submódulo de `tkinter` que permite al usuario elegir archivos desde el sistema.  
   En este proyecto se usa `filedialog.askopenfilename()` para seleccionar el archivo CSV a procesar.
-
-## 📚 Bibliografía
-- [Tutorial oficial de Python en español — Información oficial de Python](https://docs.python.org/es/3/tutorial/index.html)
-- [Principiantes de Python — Archivos CSV: Lectura y escritura de archivos CSV](https://python-adv-web-apps.readthedocs.io/en/latest/csv.html)  
-- [Keepcoding — Tkinter: Interfaz gráfica de usuario](https://keepcoding.io/blog/que-es-tkinter/)  
-- [Recursos Python — Examinar archivo o carpeta en Tkinter](https://recursospython.com/guias-y-manuales/examinar-archivo-o-carpeta-en-tk-tkinter/)
