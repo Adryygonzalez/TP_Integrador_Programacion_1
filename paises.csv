@@ -12,7 +12,7 @@ Armenia,2780465,2974300.0,Asia
 Australia,26839539,769202400.0,Oceania
 Austria,9099638,8387100.0,Europa
 Azerbaiyan,10515816,8660000.0,Asia
-Bahamas,412623,1394300.0,America del Norte
+Bahamas,412623,1394300.0,
 Banglades,177945420,14757000.0,Asia
 Barein,1573797,76500.0,Asia
 Belgica,11709588,3052800.0,Europa
@@ -28,7 +28,7 @@ Brunei,455679,576500.0,Asia
 Bulgaria,6649290,11087900.0,Europa
 Burkina Faso,24877936,27296700.0,Africa
 Burundi,14193518,2783400.0,Africa
-Butan,787941,3839400.0,Asia
+Butan,3839400.0,Asia
 Cabo Verde,598682,403300.0,Africa
 Camboya,17813670,18103500.0,Asia
 Camerun,29679039,47544200.0,Africa
@@ -72,7 +72,7 @@ Grecia,10454775,13195700.0,Europa
 Granada,126618,34400.0,America del Sur
 Guatemala,18684832,10888900.0,America Central
 Guinea,14543645,24585700.0,Africa
-Guinea Bisau,2239473,3612500.0
+Guinea Bisau,2239473,3612500.0,Africa
 Guinea Ecuatorial,1835958,2805100.0,Africa
 Guyana,813834,21496900.0,America del Sur
 Haiti,11450464,2775000.0,America del Sur
@@ -86,14 +86,14 @@ Irlanda,5197392,7027300.0,Europa
 Islandia,388756,10300000.0,Europa
 Islas Marshall,42613,18100.0,Oceania
 Islas Salomon,740424,2889600.0,Oceania
-,9604000,2207200.0,Asia
+Israel,9604000,2207200.0,Asia
 Italia,58870762,30134000.0,Europa
 Jamaica,2825544,1099100.0,America Central
 Japon,123294513,37797500.0,Asia
 Jordania,11335763,8934200.0,Asia
 Kazajistan,19821823,272490000.0,Asia
 Kenia,56215293,58036700.0,Africa
-Kirguistan,6837300,19995100.0,Asia
+6837300,19995100.0,Asia
 Kiribati,132457,81100.0,Oceania
 Kuwait,4420110,1781800.0,Asia
 Laos,7648350,23680000.0,Asia
@@ -155,7 +155,7 @@ San Marino,33931,6100.0,Europa
 San Vicente y las Granadinas,101390,38900.0,America del Sur
 Santa Lucia,180251,61600.0,America del Sur
 Santo Tome y Principe,231856,96400.0,Africa
-Senegal,18227656,Africa
+Senegal,18227656,19672200.0,Africa
 Serbia,6730893,8836100.0,Europa
 Seychelles,107660,45500.0,Africa
 Sierra Leona,8720750,7174000.0,Africa

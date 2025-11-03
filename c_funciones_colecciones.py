@@ -263,7 +263,7 @@ def filtrar_por_continente(paises: list[dict], *, continente='todos')->list[dict
     '''
     filtrados = []
     for pais in paises:
-        if (normalizar_cadena(pais['continente']) == normalizar_cadena(continente)):
+        if (normalizar_cadena(pais['continente']) == normalizar_cadena(continente)) or normalizar_cadena(continente) == 'todos':
             filtrados.append(pais)
     return filtrados
 
@@ -322,7 +322,7 @@ def contar_paises_por_continente(paises:list[dict],*,continente='todos')->int:
     '''
     contador = 0
     for pais in paises:
-        if (normalizar_cadena(pais['continente']) == normalizar_cadena(continente)):
+        if (normalizar_cadena(pais['continente']) == normalizar_cadena(continente)) or normalizar_cadena(continente) == 'todos':
             contador += 1
     return contador
 
@@ -338,7 +338,7 @@ def calcular_promedio_por_continente(paises:list[dict],*,continente='amrica del 
         float
             Promedio del campo solicitado para el continente especificado.
     '''
-    datos = [pais[campo] for pais in paises if pais['continente'].lower() == continente.lower()]
+    datos = [pais[campo] for pais in paises if pais['continente'].lower() == continente.lower() or continente.lower() == 'todos']
     return  mean(datos) 
 
 
