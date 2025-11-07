@@ -1,3 +1,4 @@
+import copy
 from statistics import mean
 from e_funciones_generales import *
 from d_modelo import *
@@ -124,7 +125,14 @@ def buscar_mayor_campo(paises:list[dict],*,campo='poblacion')->dict:
     Retorno:        
         El país con el mayor valor en el campo especificado.
     '''
-    return max(paises, key=lambda pais: pais[normalizar_cadena(campo)])
+    # return max(paises, key=lambda pais: pais[normalizar_cadena(campo)])
+    mayor_valor = -maxsize-1
+    mayor_pais = {}
+    for pais in paises:
+        if pais[normalizar_cadena(campo)] > mayor_valor:
+            mayor_valor = pais[normalizar_cadena(campo)]
+            mayor_pais = pais
+    return mayor_pais
 
 def buscar_menor_campo(paises:list[dict],*,campo='poblacion')->dict:
     '''
@@ -137,7 +145,14 @@ def buscar_menor_campo(paises:list[dict],*,campo='poblacion')->dict:
     Retorno:
         El país con el menor valor en el campo especificado.
     '''
-    return min(paises, key=lambda pais: pais[normalizar_cadena(campo)])
+    # return min(paises, key=lambda pais: pais[normalizar_cadena(campo)])
+    menor_valor = maxsize
+    menor_pais = {}
+    for pais in paises:
+        if pais[normalizar_cadena(campo)] < menor_valor:
+            menor_valor = pais[normalizar_cadena(campo)]
+            menor_pais = pais
+    return menor_pais
 
 def pedir_opcion_listado(mensaje, listado):
     '''
@@ -302,9 +317,20 @@ def ordenar_paises(paises:list[dict],*, clave='nombre', descendente=False)->list
                             
     Retorno:
         list[dict]
-            Lista de países ordenada según los criterios indicados.
+            Una Copia de la Lista de países ordenada según los criterios indicados.
     '''
-    return sorted(paises, key=lambda pais: pais[clave], reverse=descendente)
+    # return sorted(paises, key=lambda pais: pais[clave], reverse=descendente)
+    lista_ordenada = copy.deepcopy(paises)
+    for i in range(len(lista_ordenada)):
+        for j in range(i + 1, len(lista_ordenada)):
+            if descendente:
+                if lista_ordenada[i][clave] < lista_ordenada[j][clave]:
+                    lista_ordenada[i], lista_ordenada[j] = lista_ordenada[j], lista_ordenada[i]
+            else:
+                if lista_ordenada[i][clave] > lista_ordenada[j][clave]:
+                    lista_ordenada[i], lista_ordenada[j] = lista_ordenada[j], lista_ordenada[i]
+    
+    return lista_ordenada
 
 # =====================
 # Estadísticas
